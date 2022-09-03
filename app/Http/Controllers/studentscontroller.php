@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\student;
 use Illuminate\Http\Request;
 
 class studentscontroller extends Controller
@@ -13,7 +14,8 @@ class studentscontroller extends Controller
      */
     public function index()
     {
-        return view('students.index');
+        $students=Student::all();
+        return view('students.index')->with('students',$students);
     }
 
     /**
@@ -23,7 +25,8 @@ class studentscontroller extends Controller
      */
     public function create()
     {
-        //
+        return view('students.create');
+
     }
 
     /**
@@ -34,7 +37,9 @@ class studentscontroller extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $input = $request->all();
+        Student::create($input);
+        return redirect('students')->with('flash_message', 'Student Addedd!'); 
     }
 
     /**
@@ -45,7 +50,8 @@ class studentscontroller extends Controller
      */
     public function show($id)
     {
-        //
+        $student = Student::find($id);
+        return view('students.show')->with('students', $student);
     }
 
     /**
@@ -56,7 +62,8 @@ class studentscontroller extends Controller
      */
     public function edit($id)
     {
-        //
+        $student = Student::find($id);
+        return view('students.edit')->with('students', $student);
     }
 
     /**
@@ -68,7 +75,10 @@ class studentscontroller extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $student = Student::find($id);
+        $input = $request->all();
+        $student->update($input);
+        return redirect('students')->with('flash_message', 'student Updated!');  
     }
 
     /**
@@ -79,6 +89,7 @@ class studentscontroller extends Controller
      */
     public function destroy($id)
     {
-        //
+        Student::destroy($id);
+        return redirect('students')->with('flash_message', 'Student deleted!'); 
     }
 }
