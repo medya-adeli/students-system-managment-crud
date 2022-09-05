@@ -20,5 +20,8 @@
     </form>
   
   </div>
+  <div class="text-center">
+    <button class="btn btn-success" onclick="history.back()">Go Back</button><br><br> 
+  </div>
 </div>
 @stop
