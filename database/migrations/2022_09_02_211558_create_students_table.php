@@ -17,8 +17,8 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('mail');
-            $table->string('phone')->default('00000000000');
-            $table->string('image')->nullable();
+            $table->string('phone');
+            $table->string('image');
             $table->timestamps();
         });
     }
