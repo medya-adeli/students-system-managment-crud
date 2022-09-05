@@ -1,10 +1,11 @@
 @extends('students.layout')
 @section('content')
     <div  class="text-center">
-        <h1>students managment</h1><br><br>
+        <h1>students managment</h1>
+        <hr>
     </div>
     <div class="table-responsive">
-        <table class="table">
+        <table class="table text-center">
             <thead>
                 <tr>
                     <th>id</th>
