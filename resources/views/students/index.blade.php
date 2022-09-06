@@ -5,8 +5,8 @@
         <hr>
     </div>
     <div class="table-responsive">
-        <table class="table text-center">
-            <thead>
+        <table class="table text-center table-bordered table-striped">
+            <thead class="bg-danger text-white">
                 <tr>
                     <th>id</th>
                     <th>Name</th>
