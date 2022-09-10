@@ -80,13 +80,6 @@ class studentscontroller extends Controller
         $student = Student::find($id);
         $requestData = $request->all();
         $student->update($requestData);
-        if($request->hasFile('image'))
-        {
-                    $requestData = $request->all();
-        $filename=time().$request->file('image')->getClientOriginalName();
-        $path=$request->file('image')->storeAs('image',$filename,'public');
-        $requestData['image']='/storage/'.$path;Student::create($requestData);
-        }
         return redirect('students')->with('flash_message', 'student Updated!');  
     }
 
